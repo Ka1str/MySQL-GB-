@@ -1,6 +1,6 @@
 USE instagram;
 
--- Подсчет количества лайков для публикаций от мужчин
+-- РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° Р»Р°Р№РєРѕРІ РґР»СЏ РїСѓР±Р»РёРєР°С†РёР№ РѕС‚ РјСѓР¶С‡РёРЅ
 SELECT 
 	media_id
 	, COUNT(*)
@@ -12,7 +12,7 @@ WHERE media_id IN (
 )
 GROUP BY media_id;
 
--- Подсчет количества публикаций по годам
+-- РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РїСѓР±Р»РёРєР°С†РёР№ РїРѕ РіРѕРґР°Рј
 SELECT 
 	COUNT(id) AS media
 	, YEAR(created_at) AS year_name
@@ -20,7 +20,7 @@ FROM media
 GROUP BY year_name
 order by year_name desc; 
 
--- Выборка медиафайлов пользователей с количеством лайков
+-- Р’С‹Р±РѕСЂРєР° РјРµРґРёР°С„Р°Р№Р»РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ СЃ РєРѕР»РёС‡РµСЃС‚РІРѕРј Р»Р°Р№РєРѕРІ
 SELECT media.filename,
   media_types.name AS media_type,
   COUNT(*) AS total_likes,
@@ -32,7 +32,7 @@ SELECT media.filename,
   GROUP BY media.id
   ORDER BY media_type;
 
--- Выборка количества взаимных подписок пользователей
+-- Р’С‹Р±РѕСЂРєР° РєРѕР»РёС‡РµСЃС‚РІР° РІР·Р°РёРјРЅС‹С… РїРѕРґРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 SELECT username, COUNT(*) AS total_friends
   FROM users
     JOIN follow_requests ON (users.id = follow_requests.initiator_user_id or users.id = follow_requests.target_user_id)

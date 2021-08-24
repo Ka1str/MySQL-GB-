@@ -1,6 +1,6 @@
 USE instagram;
 
--- Процедура предложения подписки на новых пользователей или на друзей друзей
+-- РџСЂРѕС†РµРґСѓСЂР° РїСЂРµРґР»РѕР¶РµРЅРёСЏ РїРѕРґРїРёСЃРєРё РЅР° РЅРѕРІС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РёР»Рё РЅР° РґСЂСѓР·РµР№ РґСЂСѓР·РµР№
 drop procedure if exists follow_offers;
 
 delimiter //
@@ -37,7 +37,7 @@ DELIMITER ;
 
 CALL follow_offers(101);
 
--- Процедура добавления нового пользователя
+-- РџСЂРѕС†РµРґСѓСЂР° РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 DROP PROCEDURE IF EXISTS sp_add_user;
 DELIMITER //
 CREATE PROCEDURE sp_add_user(username VARCHAR(50),
@@ -89,7 +89,7 @@ CALL sp_add_user('alexey',
 				 @u_in_status);
 SELECT @u_in_status;
 
--- Триггер для проверки даты регистрации пользователя 
+-- РўСЂРёРіРіРµСЂ РґР»СЏ РїСЂРѕРІРµСЂРєРё РґР°С‚С‹ СЂРµРіРёСЃС‚СЂР°С†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 DELIMITER //
 
 CREATE TRIGGER check_user_signed_up BEFORE UPDATE ON users

@@ -1,6 +1,6 @@
 USE instagram;
 
--- Представление о пользователях
+-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏС…
 CREATE OR REPLACE VIEW view_profiles AS
 	SELECT u.id AS u_id,
 		   concat_ws(' ', p.first_name, p.last_name) AS name,
@@ -32,7 +32,7 @@ CREATE OR REPLACE VIEW view_profiles AS
 select *
 from view_profiles
 
--- Представление взаимных подписок
+-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РІР·Р°РёРјРЅС‹С… РїРѕРґРїРёСЃРѕРє
 CREATE or replace VIEW view_followers
 AS 
   select *
